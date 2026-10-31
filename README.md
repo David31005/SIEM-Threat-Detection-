@@ -87,7 +87,7 @@ However, successful authentication alone does not prove that an attacker comprom
 
 Additional investigation would be required.
 
-7. Security Risk Assessment
+## 7. Security Risk Assessment
 
 Initial Investigation Priority: High
 
@@ -102,7 +102,7 @@ Unauthorized configuration changes.
 Further compromise of connected systems.
 These are potential consequences, not confirmed outcomes of the simulated incident.
 
-8. Recommended Security Actions
+## 8. Recommended Security Actions
 
 Immediate Investigation
 
@@ -119,7 +119,8 @@ Enable alerts for repeated failed authentication attempts.
 Monitor privileged account activity.
 Review password policies and account permissions.
 Maintain centralized authentication logging.
-9. Incident Response Workflow
+
+## 9. Incident Response Workflow
 
 Identification: Detect repeated failed login attempts.
 
@@ -131,7 +132,7 @@ Recovery: Restore secure account access after verifying account ownership and re
 
 Documentation: Record evidence, findings, limitations, and recommended actions.
 
-10. Skills Demonstrated
+## 10. Skills Demonstrated
 
 This project demonstrates introductory knowledge of:
 
@@ -144,7 +145,8 @@ Security risk assessment
 Incident response documentation
 Technical communication
 GitHub project documentation
-11. Project Files
+
+## 11. Project Files
 
 security_logs.csv — Simulated authentication events used in the investigation.
 
@@ -152,7 +154,7 @@ incident_report.md — Investigation findings, security assessment, and recommen
 
 README.md — Project overview, methodology, and technical documentation.
 
-12. Investigation Limitations
+## 12. Investigation Limitations
 
 This project uses a small, fictional authentication dataset.
 
@@ -160,7 +162,7 @@ The investigation does not include actual SIEM ingestion, endpoint telemetry, ne
 
 The evidence supports identifying suspicious activity but does not establish confirmed unauthorized access or data theft.
 
-13. Conclusion
+## 13. Conclusion
 
 This project provided practical experience reviewing security logs, recognizing suspicious authentication patterns, and documenting a potential security incident.
 
