@@ -69,11 +69,11 @@ All IP addresses are fictional documentation examples.
 
 ## 6. Investigation Findings
 
-Total authentication events: 8
-Failed login attempts: 5
-Successful logins: 3
-Suspicious source IP: 192.0.2.45
-Targeted account: admin
+- **Total Authentication Events:** 8
+- **Failed Login Attempts:** 5
+- **Successful Logins:** 3
+- **Suspicious Source IP:** 192.0.2.45
+- **Targeted Account:** admin
 
 Suspicious Behavior Identified
 
