@@ -10,7 +10,6 @@ Project Type: Security Monitoring & Incident Investigation
 Experience Level: Entry-Level Cybersecurity
 
 
-
 1. Project Overview
 
 This project demonstrates fundamental cybersecurity skills by analyzing simulated authentication logs to identify suspicious login activity.
