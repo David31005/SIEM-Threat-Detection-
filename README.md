@@ -10,7 +10,7 @@ Project Type: Security Monitoring & Incident Investigation
 Experience Level: Entry-Level Cybersecurity
 
 
-1. Project Overview
+## 1. Project Overview
 
 This project demonstrates fundamental cybersecurity skills by analyzing simulated authentication logs to identify suspicious login activity.
 
@@ -20,7 +20,7 @@ The objective is to identify potentially malicious behavior, analyze available e
 
 Note: This is a simulated, manual security log investigation. No production SIEM platform or real organization was accessed.
 
-2. Project Objectives
+## 2. Project Objectives
 
 Analyze authentication logs for suspicious activity.
 Identify repeated failed login attempts.
@@ -28,37 +28,20 @@ Recognize potential password-guessing and brute-force attack patterns.
 Examine successful logins following failed authentication attempts.
 Document investigation findings.
 Recommend security improvements.
-3. Tools and Technologies
 
-Tool / Concept
+## 3. Tools and Technologies
 
-Purpose
+| Tool / Concept | Purpose |
+|---|---|
+| GitHub | Project documentation and version control |
+| CSV Files | Authentication log data |
+| Security Log Analysis | Identify unusual login patterns |
+| Incident Response | Document and assess suspicious events |
+| Access Control | Evaluate account protection |
+| SIEM Concepts | Understand security event monitoring 
 
-GitHub
 
-Project documentation and version control
-
-CSV Files
-
-Authentication log data
-
-Security Log Analysis
-
-Identify unusual login patterns
-
-Incident Response
-
-Document and assess suspicious events
-
-Access Control
-
-Evaluate account protection
-
-SIEM Concepts
-
-Understand security event monitoring
-
-4. Investigation Scenario
+## 4. Investigation Scenario
 
 A fictional healthcare organization identified unusual authentication activity involving its administrator account.
 
@@ -68,61 +51,23 @@ This pattern raised concerns about potential unauthorized access.
 
 The investigation was conducted using a simulated authentication dataset.
 
-5. Security Log Evidence
+## 5. Security Log Evidence
 
-The following events were identified in the dataset:
+The following suspicious authentication events were identified in the simulated dataset:
 
-Timestamp
+| Timestamp | Source IP | Account | Status |
+|---|---|---|---|
+| 09:15:01 | 192.0.2.45 | admin | FAILED |
+| 09:15:04 | 192.0.2.45 | admin | FAILED |
+| 09:15:08 | 192.0.2.45 | admin | FAILED |
+| 09:15:12 | 192.0.2.45 | admin | FAILED |
+| 09:15:17 | 192.0.2.45 | admin | SUCCESS |
 
-Source IP
+All IP addresses are fictional documentation examples.
 
-Account
 
-Status
 
-09:15:01
-
-192.0.2.45
-
-admin
-
-FAILED
-
-09:15:04
-
-192.0.2.45
-
-admin
-
-FAILED
-
-09:15:08
-
-192.0.2.45
-
-admin
-
-FAILED
-
-09:15:12
-
-192.0.2.45
-
-admin
-
-FAILED
-
-09:15:17
-
-192.0.2.45
-
-admin
-
-SUCCESS
-
-All IP addresses used in this project are reserved documentation addresses.
-
-6. Investigation Findings
+## 6. Investigation Findings
 
 Total authentication events: 8
 Failed login attempts: 5
