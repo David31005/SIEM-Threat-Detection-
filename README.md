@@ -136,15 +136,15 @@ Documentation: Record evidence, findings, limitations, and recommended actions.
 
 This project demonstrates introductory knowledge of:
 
-Security event monitoring
-Authentication log analysis
-Suspicious activity identification
-Incident triage
-Brute-force attack indicators
-Security risk assessment
-Incident response documentation
-Technical communication
-GitHub project documentation
+- Security Event Monitoring
+- Authentication Log Analysis
+- Suspicious Activity Identification
+- Incident Triage
+- Brute-Force Attack Indicators
+- Security Risk Assessment
+- Incident Response Documentation
+- Technical Communication
+- GitHub Project Documentation
 
 ## 11. Project Files
 
