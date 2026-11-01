@@ -169,3 +169,43 @@ This project provided practical experience reviewing security logs, recognizing 
 The investigation demonstrates foundational SOC Analyst skills and provides a starting point for more advanced security monitoring projects involving SIEM platforms, automated alerting, and threat detection.
 
 
+## Threat Detection Results
+
+I developed and tested a Python-based security log
+analysis script using simulated authentication data
+in Google Colab.
+
+### Detection Summary
+- Total authentication events: 8
+- Failed logins: 5
+- Successful logins: 3
+- Suspicious source IP: 192.0.2.45
+- Target account: admin
+- Detected 4 failed login attempts within 11 seconds
+- Generated an alert for possible password guessing
+- Identified a successful login following failed attempts
+
+### Detection Evidence
+![Python Security Detection Results](IMG_5130.png)
+
+### Security Assessment
+The detected activity is consistent with possible
+password guessing. The successful login following
+failed attempts requires further investigation to
+determine whether unauthorized access occurred.
+This project uses simulated data, not a confirmed
+real-world incident.
+
+### Skills Demonstrated
+- Python scripting
+- Security log analysis
+- Authentication monitoring
+- Threat detection and alerting
+- Incident investigation and documentation
+- GitHub version control
+
+### Project Files
+- `detect_threats.py` - Python detection script
+- `security_logs.csv` - Simulated authentication logs
+- `incident_report.md` - Security incident report
+- `IMG_5130.png` - Screenshot of detection results
