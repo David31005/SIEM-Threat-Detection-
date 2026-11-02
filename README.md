@@ -3,81 +3,119 @@ SIEM Threat Detection | Security Log Analysis
 Cybersecurity SOC Analyst Portfolio Project
 
 Analyst: David Jeffries
-Focus: Security Monitoring, Threat Detection, Log Analysis, Incident Investigation
-Tools: Python, CSV, GitHub
+Focus: Security Monitoring | Threat Detection | Log Analysis | Incident Investigation
+Tools: Python | CSV | GitHub
+Project Type: Hands-On Cybersecurity Lab
+Environment: Simulated Security Events
 
 ⸻
 
 Project Overview
 
-This project demonstrates a SIEM-style security investigation using simulated authentication logs. The goal is to identify suspicious login activity, evaluate potential brute-force attacks, and document findings through a structured incident investigation.
+This project demonstrates a Security Information and Event Management (SIEM)-style investigation using simulated authentication logs.
 
-The project provides hands-on practice with security event analysis and threat detection techniques relevant to entry-level SOC Analyst positions.
+The objective is to identify suspicious login activity, investigate potential brute-force attempts, analyze security events, and document findings using a structured SOC Analyst workflow.
+
+This project provides practical experience with security event analysis, threat detection, and incident documentation relevant to entry-level cybersecurity positions.
 
 Investigation Objectives
 
-* Analyze authentication events and identify suspicious activity.
-* Investigate repeated failed login attempts.
-* Identify patterns potentially associated with brute-force attacks.
-* Document security findings and recommended response actions.
-* Practice cybersecurity investigation and reporting workflows.
+* Analyze authentication logs for suspicious activity.
+* Identify repeated failed login attempts.
+* Investigate potential brute-force behavior.
+* Review source IP addresses and login patterns.
+* Document security findings and possible risks.
+* Recommend appropriate security response actions.
+
+Tools and Technologies
+
+Tool	Purpose
+Python	Security log analysis and threat detection
+CSV	Storage of simulated authentication events
+GitHub	Version control and project documentation
+Markdown	Incident reporting and investigation notes
 
 Investigation Methodology
 
-1. Security Log Collection
+Step 1: Review Security Logs
 
-Reviewed simulated authentication records stored in a CSV dataset.
+Examine simulated authentication records to identify successful and unsuccessful login attempts.
 
-2. Log Analysis
+Step 2: Identify Suspicious Activity
 
-Used Python to examine security events and investigate potentially suspicious authentication behavior.
+Look for repeated failed authentication attempts, unusual login patterns, and potentially suspicious source IP addresses.
 
-3. Threat Identification
+Step 3: Analyze Security Events
 
-Evaluated failed login patterns as possible indicators of brute-force activity.
+Use Python to review the security logs and identify patterns that may warrant further investigation.
 
-4. Incident Documentation
+Step 4: Assess Potential Threats
 
-Documented the investigation findings, security risks, and recommended response actions in an incident report.
+Evaluate whether the observed activity could indicate password guessing, brute-force attempts, or unauthorized access attempts.
 
-Project Files
+Step 5: Document Findings
 
-File	Description
-security_logs.csv	Simulated authentication log dataset
-detect_threats.py	Python security log analysis script
-incident_report.md	Security investigation and incident report
-README.md	Project overview and documentation
+Record investigation results, potential security risks, and recommended response actions.
 
-Skills Demonstrated
+Detection Approach
 
-* Security event monitoring
-* Authentication log analysis
-* SIEM-style investigation workflows
-* Brute-force detection concepts
-* Python scripting
-* Incident documentation
-* Security risk assessment
+The investigation focuses on identifying indicators such as:
+
+* Multiple failed login attempts.
+* Repeated authentication activity from the same source IP.
+* Unusual authentication patterns.
+* Potential brute-force behavior.
+
+These indicators require investigation and do not automatically confirm a successful attack.
 
 Recommended Incident Response
 
-For suspected brute-force activity, recommended investigation and response procedures include:
+When suspicious authentication activity is detected, recommended actions include:
 
-1. Verify the authentication events and affected accounts.
-2. Investigate the source IP addresses and associated activity.
-3. Review successful logins following repeated failures.
-4. Escalate suspicious activity according to organizational procedures.
-5. Consider account protection, access restrictions, and additional monitoring when justified.
-6. Document findings and remediation actions.
+1. Validate the security alerts and supporting log evidence.
+2. Review the source IP address and affected accounts.
+3. Check for successful logins following failed attempts.
+4. Escalate potentially compromised accounts for investigation.
+5. Recommend account protection measures where appropriate.
+6. Document findings and continue monitoring.
+
+Project Files
+
+* detect_threats.py — Python security detection script.
+* security_logs.csv — Simulated security event dataset.
+* incident_report.md — Security incident investigation report.
+* README.md — Project documentation.
+
+Skills Demonstrated
+
+* SOC Alert Investigation
+* Security Log Analysis
+* SIEM-Style Monitoring
+* Threat Detection
+* Python Scripting
+* Authentication Event Analysis
+* Incident Documentation
+* Security Risk Assessment
+* Incident Response Recommendations
 
 Project Limitations
 
-This is a training project using simulated security data. It demonstrates SIEM-style detection concepts and does not represent a production SIEM deployment or a confirmed real-world security incident.
+This is an educational cybersecurity project using simulated security logs.
 
-Author
+The investigation demonstrates detection and analysis techniques but does not represent a confirmed real-world security incident or production SIEM deployment.
+
+About the Analyst
 
 David Jeffries
-Aspiring Cybersecurity SOC Analyst
 
-GitHub Profile
-Cybersecurity Portfolio
-LinkedIn
+Aspiring Cybersecurity SOC Analyst with a completed Google Cybersecurity Professional Certificate and hands-on experience building security monitoring, threat detection, and incident investigation projects.
+
+GitHub: https://github.com/David31005
+
+Cybersecurity Portfolio: https://github.com/David31005/cybersecurity-portfolio
+
+LinkedIn: https://www.linkedin.com/in/david-jeffries001
+
+⸻
+
+This project is part of my cybersecurity portfolio demonstrating practical skills for entry-level SOC Analyst and Security Analyst positions.
