@@ -1,211 +1,83 @@
-# SIEM-Threat-Detection-
-beginner cyber security project investigating suspicious authentication logs and documenting potential brute-force activity
-SIEM-Style Threat Detection & Security Log Analysis
+SIEM Threat Detection | Security Log Analysis
 
-Cybersecurity Portfolio Project | SOC Analyst Training
+Cybersecurity SOC Analyst Portfolio Project
 
-Author: David Jeffries
-GitHub: David31005
-Project Type: Security Monitoring & Incident Investigation
-Experience Level: Entry-Level Cybersecurity
+Analyst: David Jeffries
+Focus: Security Monitoring, Threat Detection, Log Analysis, Incident Investigation
+Tools: Python, CSV, GitHub
 
+⸻
 
-## 1. Project Overview
+Project Overview
 
-This project demonstrates fundamental cybersecurity skills by analyzing simulated authentication logs to identify suspicious login activity.
+This project demonstrates a SIEM-style security investigation using simulated authentication logs. The goal is to identify suspicious login activity, evaluate potential brute-force attacks, and document findings through a structured incident investigation.
 
-The investigation focuses on a fictional healthcare organization that experienced multiple failed login attempts followed by a successful login to a privileged administrator account.
+The project provides hands-on practice with security event analysis and threat detection techniques relevant to entry-level SOC Analyst positions.
 
-The objective is to identify potentially malicious behavior, analyze available evidence, assess security risks, and recommend appropriate incident response actions.
+Investigation Objectives
 
-Note: This is a simulated, manual security log investigation. No production SIEM platform or real organization was accessed.
+* Analyze authentication events and identify suspicious activity.
+* Investigate repeated failed login attempts.
+* Identify patterns potentially associated with brute-force attacks.
+* Document security findings and recommended response actions.
+* Practice cybersecurity investigation and reporting workflows.
 
-## 2. Project Objectives
+Investigation Methodology
 
-Analyze authentication logs for suspicious activity.
-Identify repeated failed login attempts.
-Recognize potential password-guessing and brute-force attack patterns.
-Examine successful logins following failed authentication attempts.
-Document investigation findings.
-Recommend security improvements.
+1. Security Log Collection
 
-## 3. Tools and Technologies
+Reviewed simulated authentication records stored in a CSV dataset.
 
-| Tool / Concept | Purpose |
-|---|---|
-| GitHub | Project documentation and version control |
-| CSV Files | Authentication log data |
-| Security Log Analysis | Identify unusual login patterns |
-| Incident Response | Document and assess suspicious events |
-| Access Control | Evaluate account protection |
-| SIEM Concepts | Understand security event monitoring 
+2. Log Analysis
 
+Used Python to examine security events and investigate potentially suspicious authentication behavior.
 
-## 4. Investigation Scenario
+3. Threat Identification
 
-A fictional healthcare organization identified unusual authentication activity involving its administrator account.
+Evaluated failed login patterns as possible indicators of brute-force activity.
 
-Multiple failed login attempts occurred within seconds, followed by a successful authentication from the same source IP address.
+4. Incident Documentation
 
-This pattern raised concerns about potential unauthorized access.
+Documented the investigation findings, security risks, and recommended response actions in an incident report.
 
-The investigation was conducted using a simulated authentication dataset.
+Project Files
 
-## 5. Security Log Evidence
+File	Description
+security_logs.csv	Simulated authentication log dataset
+detect_threats.py	Python security log analysis script
+incident_report.md	Security investigation and incident report
+README.md	Project overview and documentation
 
-The following suspicious authentication events were identified in the simulated dataset:
+Skills Demonstrated
 
-| Timestamp | Source IP | Account | Status |
-|---|---|---|---|
-| 09:15:01 | 192.0.2.45 | admin | FAILED |
-| 09:15:04 | 192.0.2.45 | admin | FAILED |
-| 09:15:08 | 192.0.2.45 | admin | FAILED |
-| 09:15:12 | 192.0.2.45 | admin | FAILED |
-| 09:15:17 | 192.0.2.45 | admin | SUCCESS |
+* Security event monitoring
+* Authentication log analysis
+* SIEM-style investigation workflows
+* Brute-force detection concepts
+* Python scripting
+* Incident documentation
+* Security risk assessment
 
-All IP addresses are fictional documentation examples.
+Recommended Incident Response
 
+For suspected brute-force activity, recommended investigation and response procedures include:
 
+1. Verify the authentication events and affected accounts.
+2. Investigate the source IP addresses and associated activity.
+3. Review successful logins following repeated failures.
+4. Escalate suspicious activity according to organizational procedures.
+5. Consider account protection, access restrictions, and additional monitoring when justified.
+6. Document findings and remediation actions.
 
-## 6. Investigation Findings
+Project Limitations
 
-- **Total Authentication Events:** 8
-- **Failed Login Attempts:** 5
-- **Successful Logins:** 3
-- **Suspicious Source IP:** 192.0.2.45
-- **Targeted Account:** admin
+This is a training project using simulated security data. It demonstrates SIEM-style detection concepts and does not represent a production SIEM deployment or a confirmed real-world security incident.
 
-Suspicious Behavior Identified
+Author
 
-Four failed login attempts occurred within approximately 11 seconds.
+David Jeffries
+Aspiring Cybersecurity SOC Analyst
 
-Five seconds after the fourth failed attempt, the same source IP successfully authenticated to the administrator account.
-
-This pattern is consistent with possible password guessing or brute-force activity.
-
-However, successful authentication alone does not prove that an attacker compromised the account.
-
-Additional investigation would be required.
-
-## 7. Security Risk Assessment
-
-Initial Investigation Priority: High
-
-The activity warrants prompt investigation because it involves a privileged account and repeated authentication failures.
-
-Potential risks include:
-
-Unauthorized administrator access.
-Exposure of sensitive organizational information.
-Privilege misuse.
-Unauthorized configuration changes.
-Further compromise of connected systems.
-These are potential consequences, not confirmed outcomes of the simulated incident.
-
-## 8. Recommended Security Actions
-
-Immediate Investigation
-
-Verify whether the administrator recognizes the successful login.
-Review available multi-factor authentication records.
-Examine the source device and authentication context.
-Investigate account activity following successful authentication.
-Escalate the incident if evidence suggests unauthorized access.
-Preventive Security Controls
-
-Implement multi-factor authentication.
-Configure appropriate account lockout or rate-limiting controls.
-Enable alerts for repeated failed authentication attempts.
-Monitor privileged account activity.
-Review password policies and account permissions.
-Maintain centralized authentication logging.
-
-## 9. Incident Response Workflow
-
-Identification: Detect repeated failed login attempts.
-
-Analysis: Review timestamps, source IP addresses, account names, and authentication outcomes.
-
-Containment: If compromise is suspected, consider revoking sessions, disabling access temporarily, and resetting credentials according to organizational procedures.
-
-Recovery: Restore secure account access after verifying account ownership and reviewing relevant activity.
-
-Documentation: Record evidence, findings, limitations, and recommended actions.
-
-## 10. Skills Demonstrated
-
-This project demonstrates introductory knowledge of:
-
-- Security Event Monitoring
-- Authentication Log Analysis
-- Suspicious Activity Identification
-- Incident Triage
-- Brute-Force Attack Indicators
-- Security Risk Assessment
-- Incident Response Documentation
-- Technical Communication
-- GitHub Project Documentation
-
-## 11. Project Files
-
-security_logs.csv — Simulated authentication events used in the investigation.
-
-incident_report.md — Investigation findings, security assessment, and recommendations.
-
-README.md — Project overview, methodology, and technical documentation.
-
-## 12. Investigation Limitations
-
-This project uses a small, fictional authentication dataset.
-
-The investigation does not include actual SIEM ingestion, endpoint telemetry, network packet captures, or verification of user identity.
-
-The evidence supports identifying suspicious activity but does not establish confirmed unauthorized access or data theft.
-
-## 13. Conclusion
-
-This project provided practical experience reviewing security logs, recognizing suspicious authentication patterns, and documenting a potential security incident.
-
-The investigation demonstrates foundational SOC Analyst skills and provides a starting point for more advanced security monitoring projects involving SIEM platforms, automated alerting, and threat detection.
-
-
-## Threat Detection Results
-
-I developed and tested a Python-based security log
-analysis script using simulated authentication data
-in Google Colab.
-
-### Detection Summary
-- Total authentication events: 8
-- Failed logins: 5
-- Successful logins: 3
-- Suspicious source IP: 192.0.2.45
-- Target account: admin
-- Detected 4 failed login attempts within 11 seconds
-- Generated an alert for possible password guessing
-- Identified a successful login following failed attempts
-
-### Detection Evidence
-![Python Security Detection Results](IMG_5130.png)
-
-### Security Assessment
-The detected activity is consistent with possible
-password guessing. The successful login following
-failed attempts requires further investigation to
-determine whether unauthorized access occurred.
-This project uses simulated data, not a confirmed
-real-world incident.
-
-### Skills Demonstrated
-- Python scripting
-- Security log analysis
-- Authentication monitoring
-- Threat detection and alerting
-- Incident investigation and documentation
-- GitHub version control
-
-### Project Files
-- `detect_threats.py` - Python detection script
-- `security_logs.csv` - Simulated authentication logs
-- `incident_report.md` - Security incident report
-- `IMG_5130.png` - Screenshot of detection results
+GitHub Profile
+Cybersecurity Portfolio
+LinkedIn
