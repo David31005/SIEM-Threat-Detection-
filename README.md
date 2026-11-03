@@ -119,3 +119,11 @@ LinkedIn: https://www.linkedin.com/in/david-jeffries001
 ⸻
 
 This project is part of my cybersecurity portfolio demonstrating practical skills for entry-level SOC Analyst and Security Analyst positions.
+
+## Future Security Improvements
+
+- Add automated alerts for repeated failed login attempts.
+- Expand detection rules to identify suspicious administrator activity.
+- Add timestamps and severity levels to security alerts.
+- Improve incident response documentation and investigation workflows.
+- Test detection accuracy using additional simulated security logs.
