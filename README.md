@@ -133,13 +133,3 @@ This project is part of my cybersecurity portfolio demonstrating practical skill
 
 This checklist provides a structured workflow for investigating suspicious authentication activity in the simulated SIEM environment.
 
-- [ ] Identify repeated failed login attempts.
-- [ ] Review source IP addresses and affected accounts.
-- [ ] Check for successful logins following failed attempts.
-- [ ] Correlate event timestamps to establish an investigation timeline.
-- [ ] Assign a preliminary severity level based on available evidence.
-- [ ] Document suspicious activity and supporting log entries.
-- [ ] Recommend containment and remediation actions.
-- [ ] Record investigation findings in an incident report.
-
-Note: This checklist is intended for simulated cybersecurity training and portfolio demonstrations.
