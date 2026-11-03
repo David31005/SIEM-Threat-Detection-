@@ -1,135 +1,199 @@
-SIEM Threat Detection | Security Log Analysis
+# Advanced SIEM Threat Detection 2.0
 
-Cybersecurity SOC Analyst Portfolio Project
+![SIEM Security Tests](https://github.com/David31005/SIEM-Threat-Detection-/actions/workflows/siem-tests.yml/badge.svg)
 
-Analyst: David Jeffries
-Focus: Security Monitoring | Threat Detection | Log Analysis | Incident Investigation
-Tools: Python | CSV | GitHub
-Project Type: Hands-On Cybersecurity Lab
-Environment: Simulated Security Events
+**Python | Security Monitoring | Threat Detection | MITRE ATT&CK | GitHub Actions | CI/CD**
 
-⸻
+## Project Overview
 
-Project Overview
+Advanced SIEM Threat Detection 2.0 is a Python-based cybersecurity portfolio project that analyzes simulated authentication logs to identify suspicious login activity.
 
-This project demonstrates a Security Information and Event Management (SIEM)-style investigation using simulated authentication logs.
+The project demonstrates detection engineering, security event analysis, risk classification, automated testing, and structured security reporting.
 
-The objective is to identify suspicious login activity, investigate potential brute-force attempts, analyze security events, and document findings using a structured SOC Analyst workflow.
+**Environment:** Simulated security events  
+**Language:** Python 3.11  
+**Automation:** GitHub Actions  
+**Testing:** Python unittest
 
-This project provides practical experience with security event analysis, threat detection, and incident documentation relevant to entry-level cybersecurity positions.
+This is a SIEM-style detection simulation, not a production SIEM deployment.
 
-Investigation Objectives
+## Key Features
 
-* Analyze authentication logs for suspicious activity.
-* Identify repeated failed login attempts.
-* Investigate potential brute-force behavior.
-* Review source IP addresses and login patterns.
-* Document security findings and possible risks.
-* Recommend appropriate security response actions.
+- Automated CSV security log analysis
+- Brute-force detection using configurable thresholds
+- Detection of successful logins following repeated failures
+- High and Critical severity classification
+- Demonstration risk scores of 75 and 95
+- MITRE ATT&CK technique references
+- Structured JSON alert reporting
+- Automated Python unit tests
+- GitHub Actions CI/CD testing
+- Basic validation and skipping of malformed log records
 
-Tools and Technologies
+## Project Architecture
 
-Tool	Purpose
-Python	Security log analysis and threat detection
-CSV	Storage of simulated authentication events
-GitHub	Version control and project documentation
-Markdown	Incident reporting and investigation notes
+```text
+security_logs.csv
+       |
+       v
+detect_threats.py
+       |
+       v
+Authentication Event Analysis
+       |
+       v
+Brute-Force Detection
+       |
+       v
+Severity and Risk Classification
+       |
+       v
+security_alerts.json
+       |
+       v
+Security Investigation
+```
 
-Investigation Methodology
+GitHub Actions separately runs the unit tests, executes the detection engine, and uploads the JSON report as an artifact.
 
-Step 1: Review Security Logs
+## Repository Files
 
-Examine simulated authentication records to identify successful and unsuccessful login attempts.
+| File | Description |
+|------|-------------|
+| detect_threats.py | Python detection engine |
+| security_logs.csv | Simulated authentication events |
+| test_detect_threats.py | Automated unit tests |
+| incident_report.md | Security investigation documentation |
+| README.md | Project documentation |
+| .github/workflows/siem-tests.yml | CI/CD testing workflow |
 
-Step 2: Identify Suspicious Activity
+The detection script generates security_alerts.json when executed.
 
-Look for repeated failed authentication attempts, unusual login patterns, and potentially suspicious source IP addresses.
+## Detection Rules
 
-Step 3: Analyze Security Events
+### Rule 1: Brute-Force Authentication Attempt
 
-Use Python to review the security logs and identify patterns that may warrant further investigation.
+**Condition:** Four failed logins from the same source IP against the same account within 60 seconds.
 
-Step 4: Assess Potential Threats
+**Severity:** HIGH  
+**Risk score:** 75  
+**MITRE ATT&CK:** T1110 — Brute Force
 
-Evaluate whether the observed activity could indicate password guessing, brute-force attempts, or unauthorized access attempts.
+### Rule 2: Successful Login Following Brute Force
 
-Step 5: Document Findings
+**Condition:** A successful login occurs within 60 seconds after the qualifying failed-login sequence.
 
-Record investigation results, potential security risks, and recommended response actions.
+**Severity:** CRITICAL  
+**Risk score:** 95  
+**MITRE ATT&CK references:**
+- T1110 — Brute Force
+- T1078 — Valid Accounts
 
-Detection Approach
+The T1078 reference is an investigation hypothesis; a successful login alone does not confirm account compromise.
 
-The investigation focuses on identifying indicators such as:
+Risk scores are demonstration values, not calibrated probabilities.
 
-* Multiple failed login attempts.
-* Repeated authentication activity from the same source IP.
-* Unusual authentication patterns.
-* Potential brute-force behavior.
+## Sample Detection Results
 
-These indicators require investigation and do not automatically confirm a successful attack.
+For the eight-event simulated dataset, the expected output is:
 
-Recommended Incident Response
+```text
+=== ADVANCED SIEM THREAT DETECTION 2.0 ===
+Total events: 8
+Failed logins: 5
+Successful logins: 3
+Alerts generated: 1
 
-When suspicious authentication activity is detected, recommended actions include:
+[ CRITICAL ] BRUTE_FORCE_WITH_SUCCESS | 192.0.2.45 | admin | score=95
 
-1. Validate the security alerts and supporting log evidence.
-2. Review the source IP address and affected accounts.
-3. Check for successful logins following failed attempts.
-4. Escalate potentially compromised accounts for investigation.
-5. Recommend account protection measures where appropriate.
-6. Document findings and continue monitoring.
+JSON report: security_alerts.json
+```
 
-Project Files
+### Investigation Summary
 
-* detect_threats.py — Python security detection script.
-* security_logs.csv — Simulated security event dataset.
-* incident_report.md — Security incident investigation report.
-* README.md — Project documentation.
+**Source IP:** 192.0.2.45  
+**Target account:** admin  
+**Failed attempts:** 4  
+**Successful login:** 2026-10-30 09:15:17  
+**Classification:** Critical simulated authentication alert
 
-Skills Demonstrated
+The IP address belongs to a documentation-only address range and is used here as test data.
 
-* SOC Alert Investigation
-* Security Log Analysis
-* SIEM-Style Monitoring
-* Threat Detection
-* Python Scripting
-* Authentication Event Analysis
-* Incident Documentation
-* Security Risk Assessment
-* Incident Response Recommendations
+**Recommended investigation:** Review related authentication events, verify whether the login was authorized, examine account activity, and follow the organization's incident response procedures.
 
-Project Limitations
+## Automated Security Testing
 
-This is an educational cybersecurity project using simulated security logs.
+The project includes five Python unit tests:
 
-The investigation demonstrates detection and analysis techniques but does not represent a confirmed real-world security incident or production SIEM deployment.
+1. Brute-force detection
+2. Successful login after repeated failures
+3. Normal login activity without alerts
+4. Failed logins outside the detection window
+5. Separation of authentication events by account
 
-About the Analyst
+Run the tests locally:
 
-David Jeffries
+```bash
+python -m unittest discover -v
+```
 
-Aspiring Cybersecurity SOC Analyst with a completed Google Cybersecurity Professional Certificate and hands-on experience building security monitoring, threat detection, and incident investigation projects.
+Run the detection engine:
 
-GitHub: https://github.com/David31005
+```bash
+python detect_threats.py
+```
 
-Cybersecurity Portfolio: https://github.com/David31005/cybersecurity-portfolio
+The script uses Python standard-library modules and requires no external Python packages.
 
-LinkedIn: https://www.linkedin.com/in/david-jeffries001
+## GitHub Actions CI/CD
 
-⸻
+The GitHub Actions workflow automatically:
 
-This project is part of my cybersecurity portfolio demonstrating practical skills for entry-level SOC Analyst and Security Analyst positions.
+1. Checks out the repository.
+2. Sets up Python 3.11.
+3. Runs the automated unit tests.
+4. Executes the SIEM detection script.
+5. Uploads the generated JSON security alerts as an artifact.
 
-## Future Security Improvements
+**Workflow:** .github/workflows/siem-tests.yml
 
-- Add automated alerts for repeated failed login attempts.
-- Expand detection rules to identify suspicious administrator activity.
-- Add timestamps and severity levels to security alerts.
-- Improve incident response documentation and investigation workflows.
-- Test detection accuracy using additional simulated security logs.
+The workflow runs on pushes, pull requests, and manual dispatch.
 
+## Limitations and Future Improvements
 
-## Security Incident Response Checklist
+This project is a controlled security simulation.
 
-This checklist provides a structured workflow for investigating suspicious authentication activity in the simulated SIEM environment.
+Current limitations:
+- Processes CSV files rather than live SIEM event streams
+- Uses fixed thresholds and demonstration risk scores
+- Detects one qualifying sequence per IP/account group
+- Does not confirm that a successful login represents compromise
+
+Planned improvements:
+- Additional detection rules and test coverage
+- Configurable thresholds and severity scoring
+- Expanded MITRE ATT&CK mappings
+- Detection performance evaluation
+- Security dashboards and alert visualization
+
+## Skills Demonstrated
+
+**SOC Analysis:** Authentication log review, suspicious activity detection, and incident investigation.
+
+**Detection Engineering:** Python detection logic, threshold-based rules, risk classification, and structured alert generation.
+
+**Security Automation:** Automated unit testing, GitHub Actions, and CI/CD workflow development.
+
+**Security Frameworks:** MITRE ATT&CK technique mapping and incident response documentation.
+
+## Author
+
+**David Jeffries**  
+Aspiring SOC Analyst | Cybersecurity Portfolio
+
+[GitHub Profile](https://github.com/David31005)  
+[LinkedIn](https://www.linkedin.com/in/david-jeffries001)
+
+---
+
 
