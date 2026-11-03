@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SOC Security Dashboard | David Jeffries</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b1220;color:#e5edf7;font-family:Arial,sans-serif}
+header{padding:25px 18px;background:#111d31;border-bottom:1px solid #30415b}
+h1{font-size:25px;margin:0 0 8px}
+.subtitle{color:#9eafc6;font-size:14px}
+main{max-width:1100px;margin:auto;padding:18px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card{background:#17243a;border:1px solid #30415b;border-radius:12px;padding:18px;margin-bottom:14px}
+.metric{font-size:30px;font-weight:bold;margin-top:12px}
+.label{font-size:13px;color:#aebdd1}
+.red{color:#ff6b77}.green{color:#4ade80}.orange{color:#fbbf24}
+h2{font-size:18px;margin:0 0 18px}
+.bar{height:22px;background:#293b54;border-radius:6px;overflow:hidden;margin:8px 0 16px}
+.fill{height:100%;background:#ef5965}
+.fill.success{background:#35b985}
+.row{display:flex;justify-content:space-between;gap:10px;font-size:14px}
+.alert{border-left:4px solid #ff5263;padding:14px;background:#2c2033;border-radius:6px;line-height:1.8}
+.tag{display:inline-block;background:#7f2335;color:#fff;padding:4px 9px;border-radius:6px;font-size:12px;font-weight:bold}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:12px 8px;border-bottom:1px solid #34435b}
+th{color:#aebdd1}
+.tablewrap{overflow-x:auto}
+footer{text-align:center;color:#9eafc6;font-size:12px;padding:25px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
+</style>
+</head>
+<body>
+<header>
+<h1>🛡️ Security Operations Center</h1>
+<div class="subtitle">Advanced SIEM Threat Detection 2.0 | David Jeffries</div>
+</header>
+<main>
+<div class="grid">
+<div class="card"><div class="label">TOTAL EVENTS</div><div class="metric" id="total">0</div></div>
+<div class="card"><div class="label">FAILED LOGINS</div><div class="metric red" id="failed">0</div></div>
+<div class="card"><div class="label">SUCCESSFUL LOGINS</div><div class="metric green" id="success">0</div></div>
+<div class="card"><div class="label">CRITICAL ALERTS</div><div class="metric orange" id="critical">0</div></div>
+</div>
+<section class="card">
+<h2>Authentication Activity</h2>
+<div class="row"><span>Failed Logins</span><strong id="failedLabel"></strong></div>
+<div class="bar"><div id="failedBar" class="fill"></div></div>
+<div class="row"><span>Successful Logins</span><strong id="successLabel"></strong></div>
+<div class="bar"><div id="successBar" class="fill success"></div></div>
+</section>
+<section class="card">
+<h2>Threat Detection Alerts</h2>
+<div id="alerts"></div>
+</section>
+<section class="card">
+<h2>Authentication Event Timeline</h2>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Timestamp</th><th>Source IP</th><th>Account</th><th>Status</th></tr></thead>
+<tbody id="events"></tbody>
+</table>
+</div>
+</section>
+<section class="card">
+<h2>Detection Engineering</h2>
+<p>Brute-force detection: 4 failed logins within 60 seconds.</p>
+<p>MITRE ATT&CK: T1110 (Brute Force), T1078 (Valid Accounts).</p>
+<p>Risk scoring: HIGH = 75, CRITICAL = 95.</p>
+<p class="subtitle">Simulated data for educational security analysis. Alerts do not establish confirmed compromise.</p>
+</section>
+</main>
+<footer>David Jeffries | Cybersecurity Engineering Portfolio | SIEM 2.0</footer>
+<script>
+const events=[
+["2026-10-30 09:15:01","192.0.2.45","admin","FAILED"],
+["2026-10-30 09:15:04","192.0.2.45","admin","FAILED"],
+["2026-10-30 09:15:08","192.0.2.45","admin","FAILED"],
+["2026-10-30 09:15:12","192.0.2.45","admin","FAILED"],
+["2026-10-30 09:15:17","192.0.2.45","admin","SUCCESS"],
+["2026-10-30 09:17:01","198.51.100.22","employee1","SUCCESS"],
+["2026-10-30 09:18:05","203.0.113.10","employee2","FAILED"],
+["2026-10-30 09:18:25","203.0.113.10","employee2","SUCCESS"]
+];
+const failed=events.filter(e=>e[3]==="FAILED").length;
+const success=events.filter(e=>e[3]==="SUCCESS").length;
+const alerts=[{severity:"CRITICAL",type:"BRUTE_FORCE_WITH_SUCCESS",ip:"192.0.2.45",user:"admin",score:95,mitre:"T1110, T1078"}];
+document.getElementById("total").textContent=events.length;
+document.getElementById("failed").textContent=failed;
+document.getElementById("success").textContent=success;
+document.getElementById("critical").textContent=alerts.filter(a=>a.severity==="CRITICAL").length;
+document.getElementById("failedLabel").textContent=failed;
+document.getElementById("successLabel").textContent=success;
+document.getElementById("failedBar").style.width=(failed/events.length*100)+"%";
+document.getElementById("successBar").style.width=(success/events.length*100)+"%";
+const alertContainer=document.getElementById("alerts");
+alerts.forEach(a=>{
+const div=document.createElement("div");
+div.className="alert";
+div.textContent=a.type+" | Source: "+a.ip+" | Account: "+a.user+" | Risk score: "+a.score+" | MITRE: "+a.mitre;
+const badge=document.createElement("span");
+badge.className="tag";
+badge.textContent=a.severity;
+div.prepend(badge,document.createElement("br"));
+alertContainer.appendChild(div);
+});
+const tbody=document.getElementById("events");
+events.forEach(e=>{
+const tr=document.createElement("tr");
+e.forEach((value,i)=>{
+const td=document.createElement("td");
+td.textContent=value;
+if(i===3)td.className=value==="FAILED"?"red":"green";
+tr.appendChild(td);
+});
+tbody.appendChild(tr);
+});
+</script>
+</body>
+</html>
