@@ -4,6 +4,14 @@
 
 **Python | Security Monitoring | Threat Detection | MITRE ATT&CK | GitHub Actions | CI/CD**
 
+## Live SOC Security Dashboard
+
+[View My Interactive SOC Dashboard](https://david31005.github.io/SIEM-Threat-Detection-/)
+
+Explore a browser-based security monitoring dashboard featuring simulated authentication events, failed login analysis, critical security alerts, and MITRE ATT&CK references.
+
+**Technologies:** Python, HTML, CSS, JavaScript, GitHub Actions, GitHub Pages.
+
 ## Project Overview
 
 Advanced SIEM Threat Detection 2.0 is a Python-based cybersecurity portfolio project that analyzes simulated authentication logs to identify suspicious login activity.
