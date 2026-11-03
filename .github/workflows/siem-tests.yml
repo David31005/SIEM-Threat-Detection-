@@ -1,0 +1,35 @@
+name: SIEM Security Tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run automated security tests
+        run: python -m unittest discover -v
+
+      - name: Run SIEM detection engine
+        run: python detect_threats.py
+
+      - name: Upload security alerts
+        uses: actions/upload-artifact@v4
+        with:
+          name: siem-security-alerts
+          path: security_alerts.json
+          if-no-files-found: error
